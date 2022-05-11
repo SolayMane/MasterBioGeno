@@ -81,10 +81,10 @@ contigs.fasta R1.fq.gz R2.fq.gz \
 --reference contigs.fasta -T /tmp/samtools.65534\
  -o aligned.bam >> 70-bwa.log 2>&1
 #index the mapping
-samtools index shovill.bam >> 70-bwa.log 2>&1
+samtools index aligned.bam >> 70-bwa.log 2>&1
 #Correcting errors in contigs.fasta
 _JAVA_OPTIONS=-Xmx250g pilon --genome contigs.fasta \
---frags shovill.bam --fix bases --output pilon --threads 56 --changes --mindepth 0.25 >> 80-pilon.log 2>&1 >> /dev/null 2>&1
+--frags aligned.bam --fix bases --output pilon --threads 56 --changes --mindepth 0.25 >> 80-pilon.log 2>&1 >> /dev/null 2>&1
 
 # to asses assembly with QUAST we nee a reference sequence:
 #get the reference genome
