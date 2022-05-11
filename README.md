@@ -1,5 +1,15 @@
 # MasterBioGeno
-You will find here all the necesseray data to follow the tutorial on genome assembly
+You will find here all the necessary data to follow the tutorial on genome assembly
+# Install Conda and the rerquired tools
+````bash
+#Download the Miniconda installer for your system and run the following
+bash Miniconda3-latest-Linux-x86_64.sh
+
+#install the required tools
+#create a file named liste.pkg and put all the packages one per line
+conda install –c bioconda --file liste.pkg
+
+````
 # Assembly workflow
 ```mermaid
 graph TD
@@ -32,10 +42,10 @@ graph TD
 mkdir assembly
 
 #Get the raw data
-prefetch SRR3111247
+prefetch -O assembly/SRR3111247
 
 #converte sra file to fastq files
-fasterq-dump -S -e 56 SRR3111247/SRR3111247.sra
+fasterq-dump -S -e 56 assembly/SRR3111247/SRR3111247.sra
 
 #count the number of reads per file
 cat SRR3111247_1.fastq | awk 'END { print NR/4}'
