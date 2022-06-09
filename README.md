@@ -35,6 +35,18 @@ graph TD
      class X,A green
      class C,D,E orange
 ```
+# Assembly Assesement
+```mermaid
+graph TD
+    X(Assembly) -- BUSCO --> A(Results)
+    X --> |QUAST| Q(stats)
+  
+     classDef green fill:#9f6,stroke:#333,stroke-width:2px
+     classDef orange fill:#f96,stroke:#333,stroke-width:4px
+     class X green
+     class Q,A orange
+```
+
 # Assembly workflow cmd
 ### This workflow was inspired from shovill pipeline
 ````bash
